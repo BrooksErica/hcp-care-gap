@@ -22,7 +22,6 @@ We identify **care gaps**, **innovation adoption (GLP-1/SGLT2)**, and **DPP-4 he
 ![State Choropleth](reports/figures/state_dpp4.png)
 
 🔗 Interactive map: https://BrooksErica.github.io/hcp-care-gap/state_dpp4.html  
-🖼️ Static PNG (in the PDF): ![State DPP-4](reports/figures/state_dpp4.png)
 
 
 ## Repo Structure
