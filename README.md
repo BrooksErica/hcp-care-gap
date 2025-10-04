@@ -21,4 +21,7 @@ We identify **care gaps**, **innovation adoption (GLP-1/SGLT2)**, and **DPP-4 he
 ![Stacked Specialty](reports/figures/shares_by_specialty.png)  
 ![State Choropleth](reports/figures/state_dpp4.png)
 
+**Interactive map:** [reports/figures/state_dpp4.html](reports/figures/state_dpp4.html)  
+Static image (used in PDF): `reports/figures/state_dpp4.png`
+
 ## Repo Structure
