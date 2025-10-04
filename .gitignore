@@ -1,0 +1,56 @@
+
+# --- SYSTEM FILES ---
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+__pycache__/
+*.pyc
+
+# --- PYTHON ENVIRONMENTS ---
+venv/
+env/
+.venv/
+.ipynb_checkpoints/
+*.egg-info/
+*.pkl
+*.joblib
+
+# --- DATA FILES ---
+data/raw/
+data/interim/
+*.zip
+*.tar.gz
+*.7z
+*.parquet
+*.feather
+*.xls
+*.xlsx
+*.sav
+*.dta
+*.rds
+*.db
+*.sqlite
+
+# --- NOTEBOOK OUTPUT ---
+notebooks/.ipynb_checkpoints/
+notebooks/*-checkpoint.ipynb
+
+# --- GENERATED OUTPUTS ---
+reports/figures/*.html
+reports/figures/*.pdf
+reports/figures/*.png
+reports/case_study_pfizer.pdf
+
+# (optional) keep selected images visible
+# !reports/figures/scatter_gap_innov_dpp4.png
+# !reports/figures/shares_by_specialty.png
+
+# --- STREAMLIT / CACHE ---
+.streamlit/
+.cache/
+*.db
+
+# --- IDE FILES ---
+.vscode/
+.idea/
