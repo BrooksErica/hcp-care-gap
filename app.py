@@ -19,7 +19,7 @@ def load_data(path):
 st.set_page_config(page_title="Care Gap & HCP Segmentation", layout="wide")
 st.title("Care Gap & HCP Segmentation (CMS Part D 2023)")
 
-data_path = st.text_input("Path to processed CSV", "data/out/hcp_caregap_features.csv")
+data_path = st.text_input("Path to processed CSV", "data/out/hcp_caregap_sample.csv")
 df = load_data(data_path)
 
 # Filters
