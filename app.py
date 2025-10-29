@@ -3,6 +3,8 @@
 import pandas as pd
 import plotly.express as px
 import streamlit as st
+import base64
+from pathlib import Path
 
 @st.cache_data
 def load_data(path_main="data/out/hcp_caregap_features.csv",
@@ -24,6 +26,35 @@ def load_data(path_main="data/out/hcp_caregap_features.csv",
 st.set_page_config(page_title="HCP Care Gap & Segmentation", layout="wide")
 st.title("HCP Care Gap & Segmentation (CMS Part D 2023)")
 st.caption("Built by Erica Brooks • PDF case study, GitHub & interactive map links below")
+
+PDF_PATH = Path("reports/case_study.pdf")
+
+st.subheader("📄 Case Study PDF")
+
+if PDF_PATH.exists():
+    # 1) Download button
+    pdf_bytes = PDF_PATH.read_bytes()
+    st.download_button(
+        "Download Case Study PDF",
+        data=pdf_bytes,
+        file_name="case_study.pdf",
+        mime="application/pdf",
+    )
+
+    # 2) Inline viewer via base64 (no CORS / iframe issues)
+    b64 = base64.b64encode(pdf_bytes).decode()
+    st.components.v1.html(
+        f'''
+        <iframe
+            src="data:application/pdf;base64,{b64}#view=FitH"
+            width="100%" height="800" style="border:none;"
+        ></iframe>
+        ''',
+        height=820,
+    )
+else:
+    st.warning("PDF not found in `reports/case_study.pdf`. "
+               "Ensure it’s committed to the repo and not ignored by .gitignore.")
 
 st.markdown(
     """
