@@ -28,7 +28,7 @@ st.caption("Built by Erica Brooks • PDF case study, GitHub & interactive map l
 st.markdown(
     """
     **Links:** 
-    - 📄 [Case study PDF](reports/case_study_pfizer.pdf)  
+    - 📄 [Case study PDF](reports/case_study.pdf)  
     - 💻 [GitHub repo](https://github.com/BrooksErica/hcp-care-gap)  
     - 🗺️ [Interactive DPP-4 map](https://brookserica.github.io/hcp-care-gap/state_dpp4.html)
     """,
