@@ -28,20 +28,6 @@ st.set_page_config(page_title="HCP Care Gap & Segmentation", layout="wide")
 st.title("HCP Care Gap & Segmentation (CMS Part D 2023)")
 st.caption("Built by Erica Brooks • PDF case study, GitHub & interactive map links below")
 
-st.subheader("📄 Case Study PDF")
-
-PDF_PATH = Path("reports/case_study.pdf")
-if PDF_PATH.exists():
-        pdf_viewer(PDF_PATH.read_bytes(), width=1000)  # renders with pdf.js, no iframe/CORS issues
-        st.download_button(
-            "Download Case Study PDF",
-            data=PDF_PATH.read_bytes(),
-            file_name="case_study.pdf",
-            mime="application/pdf",
-        )
-else:
-        st.warning("PDF not found at reports/case_study.pdf.")
-
 st.markdown(
     """
     **Links:**  
@@ -114,3 +100,17 @@ prof = (d.groupby("specialty_description", as_index=False)
           .sort_values("rx_total", ascending=False)
           .head(20))
 st.dataframe(prof)
+
+st.subheader("📄 Case Study PDF")
+
+PDF_PATH = Path("reports/case_study.pdf")
+if PDF_PATH.exists():
+        pdf_viewer(PDF_PATH.read_bytes(), width=1000)  # renders with pdf.js, no iframe/CORS issues
+        st.download_button(
+            "Download Case Study PDF",
+            data=PDF_PATH.read_bytes(),
+            file_name="case_study.pdf",
+            mime="application/pdf",
+        )
+else:
+        st.warning("PDF not found at reports/case_study.pdf.")
