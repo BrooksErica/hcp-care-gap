@@ -102,9 +102,7 @@ hcp-care-gap/
 Interactive Map (GitHub Pages):
 🔗 https://brookserica.github.io/hcp-care-gap/state_dpp4.html
 
-Streamlit Dashboard:
-Launch locally or deploy to Streamlit Cloud
-streamlit run app.py
+Streamlit Dashboard: https://hcp-care-gap.streamlit.app/
 
 Full Case Study PDF:
 reports/case_study_pfizer.pdf
