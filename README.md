@@ -87,7 +87,7 @@ hcp-care-gap/
 │ ├── hcp_caregap.ipynb # validation checks, plots & charts
 ├── reports/
 │ ├── figures/ # PNGs and HTML map
-│ └── case_study_pfizer.pdf
+│ └── case_study.pdf
 ├── src/
 │ └── pipeline.py # optional script for pipeline (exported from Colab)
 ├── app.py # Streamlit dashboard
@@ -105,5 +105,5 @@ Interactive Map (GitHub Pages):
 Streamlit Dashboard: https://hcp-care-gap.streamlit.app/
 
 Full Case Study PDF:
-reports/case_study_pfizer.pdf
+reports/case_study.pdf
 
