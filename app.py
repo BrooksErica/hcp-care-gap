@@ -34,7 +34,7 @@ st.subheader("📄 Case Study PDF")
 if PDF_PATH.exists():
     pdf_bytes = PDF_PATH.read_bytes()
 
-    # Download button (always works)
+    # Download button (works now, as you saw)
     st.download_button(
         "Download Case Study PDF",
         data=pdf_bytes,
@@ -42,7 +42,7 @@ if PDF_PATH.exists():
         mime="application/pdf",
     )
 
-    # Inline viewer via base64 (no cross-origin or iframe URL issues)
+    # Inline viewer that avoids Chrome/X-Frame/CSP blocks
     b64 = base64.b64encode(pdf_bytes).decode("utf-8")
     st.components.v1.html(
         f"""
@@ -52,7 +52,7 @@ if PDF_PATH.exists():
         height=820,
     )
 else:
-    st.warning("PDF not found at reports/case_study.pdf — ensure it's committed and not in .gitignore.")
+    st.warning("PDF not found at reports/case_study.pdf. Make sure it's committed and not ignored.")
 
 st.markdown(
     """
