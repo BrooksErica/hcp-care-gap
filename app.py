@@ -4,6 +4,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 import base64
+from streamlit_pdf_viewer import pdf_viewer
 from pathlib import Path
 
 @st.cache_data
@@ -27,32 +28,19 @@ st.set_page_config(page_title="HCP Care Gap & Segmentation", layout="wide")
 st.title("HCP Care Gap & Segmentation (CMS Part D 2023)")
 st.caption("Built by Erica Brooks • PDF case study, GitHub & interactive map links below")
 
-PDF_PATH = Path("reports/case_study.pdf")
-
 st.subheader("📄 Case Study PDF")
 
+PDF_PATH = Path("reports/case_study.pdf")
 if PDF_PATH.exists():
-    pdf_bytes = PDF_PATH.read_bytes()
-
-    # Download button (works now, as you saw)
-    st.download_button(
-        "Download Case Study PDF",
-        data=pdf_bytes,
-        file_name="case_study.pdf",
-        mime="application/pdf",
-    )
-
-    # Inline viewer that avoids Chrome/X-Frame/CSP blocks
-    b64 = base64.b64encode(pdf_bytes).decode("utf-8")
-    st.components.v1.html(
-        f"""
-        <iframe src="data:application/pdf;base64,{b64}#view=FitH"
-                width="100%" height="800" style="border:none;"></iframe>
-        """,
-        height=820,
-    )
+        pdf_viewer(PDF_PATH.read_bytes(), width=1000)  # renders with pdf.js, no iframe/CORS issues
+        st.download_button(
+            "Download Case Study PDF",
+            data=PDF_PATH.read_bytes(),
+            file_name="case_study.pdf",
+            mime="application/pdf",
+        )
 else:
-    st.warning("PDF not found at reports/case_study.pdf. Make sure it's committed and not ignored.")
+        st.warning("PDF not found at reports/case_study.pdf.")
 
 st.markdown(
     """
