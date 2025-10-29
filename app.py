@@ -32,8 +32,9 @@ PDF_PATH = Path("reports/case_study.pdf")
 st.subheader("📄 Case Study PDF")
 
 if PDF_PATH.exists():
-    # 1) Download button
     pdf_bytes = PDF_PATH.read_bytes()
+
+    # Download button (always works)
     st.download_button(
         "Download Case Study PDF",
         data=pdf_bytes,
@@ -41,25 +42,21 @@ if PDF_PATH.exists():
         mime="application/pdf",
     )
 
-    # 2) Inline viewer via base64 (no CORS / iframe issues)
-    b64 = base64.b64encode(pdf_bytes).decode()
+    # Inline viewer via base64 (no cross-origin or iframe URL issues)
+    b64 = base64.b64encode(pdf_bytes).decode("utf-8")
     st.components.v1.html(
-        f'''
-        <iframe
-            src="data:application/pdf;base64,{b64}#view=FitH"
-            width="100%" height="800" style="border:none;"
-        ></iframe>
-        ''',
+        f"""
+        <iframe src="data:application/pdf;base64,{b64}#view=FitH"
+                width="100%" height="800" style="border:none;"></iframe>
+        """,
         height=820,
     )
 else:
-    st.warning("PDF not found in `reports/case_study.pdf`. "
-               "Ensure it’s committed to the repo and not ignored by .gitignore.")
+    st.warning("PDF not found at reports/case_study.pdf — ensure it's committed and not in .gitignore.")
 
 st.markdown(
     """
-    **Links:** 
-    - 📄 [Case study PDF](reports/case_study.pdf)  
+    **Links:**  
     - 💻 [GitHub repo](https://github.com/BrooksErica/hcp-care-gap)  
     - 🗺️ [Interactive DPP-4 map](https://brookserica.github.io/hcp-care-gap/state_dpp4.html)
     """,
